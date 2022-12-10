@@ -1,21 +1,19 @@
 const main = document.querySelector("main");
 
-main.addEventListener("dragstart", e =>
-	callIfTargetIsColumn(e, handleDragStart),
-);
-main.addEventListener("dragend", e => callIfTargetIsColumn(e, handleDragEnd));
-main.addEventListener("dragenter", e =>
-	callIfTargetIsColumn(e, handleDragEnter),
-);
+main.addEventListener("dragstart", callIfTargetIsColumn(handleDragStart));
+main.addEventListener("dragend", callIfTargetIsColumn(handleDragEnd));
+main.addEventListener("dragenter", callIfTargetIsColumn(handleDragEnter));
 main.addEventListener("dragleave", handleDragLeave);
 main.addEventListener("dragover", handleDragOver);
 main.addEventListener("drop", handleDrop);
 
 let currentDraggedElement = null;
 
-function callIfTargetIsColumn(event, fn) {
-	if (!event.target.className === "column") return;
-	fn(event);
+function callIfTargetIsColumn(fn) {
+	return event => {
+		if (!event.target.className === "column") return;
+		fn(event);
+	};
 }
 
 function handleDragStart({ target, dataTransfer }) {
