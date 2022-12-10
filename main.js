@@ -3,9 +3,9 @@ const main = document.querySelector("main");
 main.addEventListener("dragstart", callIfTargetIsColumn(handleDragStart));
 main.addEventListener("dragend", callIfTargetIsColumn(handleDragEnd));
 main.addEventListener("dragenter", callIfTargetIsColumn(handleDragEnter));
-main.addEventListener("dragleave", handleDragLeave);
-main.addEventListener("dragover", handleDragOver);
-main.addEventListener("drop", handleDrop);
+main.addEventListener("dragleave", callIfTargetIsColumn(handleDragLeave));
+main.addEventListener("dragover", callIfTargetIsColumn(handleDragOver));
+main.addEventListener("drop", callIfTargetIsColumn(handleDrop));
 
 let currentDraggedElement = null;
 
