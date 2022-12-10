@@ -1,6 +1,6 @@
 # dnd-vanilla-js
 
-Drag-and-drop Trello like board built with vanilla js
+Drag-and-drop column built with vanilla js
 
 # Why
 
